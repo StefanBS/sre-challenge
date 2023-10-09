@@ -26,9 +26,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: GitHub repository to lowercase
+        run: |
+          echo "REPOSITORY=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           target: dev
           push: true
-          tags: ${{ github.repository }}/app:latest
+          tags: |
+            ${{ env.REPOSITORY }}/app:latest
+            ${{ env.REPOSITORY }}/app:${{ github.sha }}
