@@ -36,5 +36,5 @@ jobs:
           target: dev
           push: true
           tags: |
-            ${{ env.REPOSITORY }}/app:latest
-            ${{ env.REPOSITORY }}/app:${{ github.sha }}
+            ghcr.io/${{ env.REPOSITORY }}/app:latest
+            ghcr.io/${{ env.REPOSITORY }}/app:${{ github.sha }}
