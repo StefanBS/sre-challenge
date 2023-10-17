@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  sre-challenge:
+  - apiVersion: v2
+    created: "2023-10-17T23:12:41.214284815Z"
+    dependencies:
+    - name: redis
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 18.1.5
+    description: A Helm chart for Kubernetes
+    digest: 4fa811bd496b90a467636dc361f4f5fee801ad532cffb56b95f2928537279c5f
+    name: sre-challenge
+    type: application
+    urls:
+    - https://github.com/StefanBS/sre-challenge/releases/download/sre-challenge-0.1.0/sre-challenge-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-10-17T23:12:41.214295915Z"
