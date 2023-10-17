@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "sre-challenge.fullname" . }}-test-connection"
+  labels:
+    {{- include "sre-challenge.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ["/bin/sh", "/tests/run.sh"]
+      volumeMounts:
+      - mountPath: /tests
+        name: tests
+        readOnly: true
+  volumes:
+    - name: tests
+      configMap:
+        name: "{{ .Chart.Name }}-test"
+  restartPolicy: Never

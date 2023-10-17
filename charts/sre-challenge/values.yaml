@@ -1,0 +1,27 @@
+name: sre-challenge
+
+image:
+  repository: ghcr.io/stefanbs/sre-challenge/app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 4
+  cpu:
+    averageUtilization: 50
+
+service:
+  port: 3000
+
+ingress:
+  host: ''
+
+redis:
+  host: web-redis-master
+  auth:
+    enabled: true
+    existingSecret: redis-secret
+    existingSecretPasswordKey: password
+  replica:
+    replicaCount: 1
