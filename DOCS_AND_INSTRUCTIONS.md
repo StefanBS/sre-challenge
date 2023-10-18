@@ -16,7 +16,12 @@ Triggered every time a push is made to main, but only creates a new chart releas
 
 # Decisions
 ## High availability
-Created a HPA for the web app based on cpu utilization and replication from 2 to 4. Deployed Redis Sentinel in two pods.
+Created a HPA for the web app based on cpu utilization and replication from 2 to 4 instances. Deployed Redis Sentinel in two pods
 
 ## Security
 Added password authentication to Redis. The password is created on the first Helm install as a secret
+
+# Improvements
+- A basic Helm chart test is implemented. This test could be improved by adding a health-check endpoint to the app that checks there is communication with Redis
+- The Helm chart test could be integrated into the `release` GitHub workflow or a PR workflow
+- Using a HTTPS ingress endpoint
