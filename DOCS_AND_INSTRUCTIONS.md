@@ -36,3 +36,4 @@ Added password authentication to Redis. The password is created on the first Hel
 - A basic Helm chart test is implemented. This test could be improved by adding a health-check endpoint to the app that checks there is communication with Redis
 - The Helm chart test could be integrated into the `release` GitHub workflow or a PR workflow
 - Using a HTTPS ingress endpoint
+- Use version tags for the deployed image instead of `latest`, promoting the version through the environments from dev to prod
